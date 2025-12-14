@@ -64,12 +64,30 @@
   //"font": "MonaspiceAr NFP",
   "font": "Fira Sans",
   "size": 1em,
-  "margin": (x: 1em, y: 2em),
+  "margin": (x: 0em, y: 0em),
+  "header": (
+    "margin": (
+      "x": 1em,
+      "y": 0.61em,
+    ),
+  ),
   "footer": (
     "size": 0.61em,
     "transparentize": 39%,
   ),
+  "blocks": (
+    "width": 100%,
+    "sticky": true,
+    "inset": 0em,
+    "outset": 0em,
+    "spacing": 0em,
+  ),
   "services": (
+    "standout": 1em,
+    "margin": (
+      "x": 1fr,
+      "y": 1.61em,
+    ),
     "stack": (
       "spacing": 1.61fr,
     ),
@@ -78,7 +96,7 @@
         gradient.radial(
           nord.polarNight.light,
           nord.polarNight.dark,
-          center: (99%, 50%),
+          center: (100%, 50%),
           radius: 61%
         ),
       "radius": 1em,
@@ -88,6 +106,10 @@
     ),
   ),
   "topics": (
+    "margin": (
+      "x": 1fr,
+      "y": 1.61em,
+    ),
     "block": (
       "stroke": (
         "top": 0.2em +
@@ -112,7 +134,7 @@
       "radius": 1em,
       "inset": 1.5em,
       "width": 19em,
-      "height": 18em,
+      "height": 15em,
     ),
     "stack": (
       "spacing": 1.61fr,
@@ -135,6 +157,10 @@
     ),
   ),
   "stats": (
+    "margin": (
+      "x": 1fr,
+      "y": 1.61em,
+    ),
     "stack": (
       "spacing": 4em,
     ),
@@ -203,46 +229,35 @@
   height: web_quality*proportion,
   margin: config.margin,
   fill: theme.background,
-  header: [
-    #text(
-      fill: nord.frost.clearIce,
-      [Mateus Furquim]
-    )
-    #h(1fr)
-    Treinamento e Consultoria em Engenharia de Software
-  ],
-  footer: [
-    #h(1fr)
-    #text(
-      fill: theme.textPrimary.transparentize(config.footer.transparentize),
-      font: "MonaspiceRn NFP",
-      size: config.footer.size,
-      [Made with],
-    )
-    #text(
-      fill: theme.typst.transparentize(config.footer.transparentize),
-      font: "MonaspiceKr NFP",
-      size: config.footer.size,
-      [typst],
-    )
-  ]
 )
 
 
-#v(2.2em)
+#[
+  #v(config.header.margin.y)
+  #h(config.header.margin.x)
+  #text(
+    fill: nord.frost.arcticWater,
+    [Mateus Furquim]
+  )
+  #h(1fr)
+  #text(
+    fill: nord.snowStorm.dimmer,
+    [Treinamento e Consultoria em Engenharia de Software]
+  )
+  #h(config.header.margin.x)
+],
+
 #block(
-  outset: 2em,
-  sticky: true,
-  inset: 2em,
-  width: 100%,
+  ..config.blocks,
   fill:
     gradient.radial(
       nord.polarNight.dark,
       nord.polarNight.darker,
-      center: (85%, 50%),
+      center: (99%, 99%),
       radius: 61%
     ),
   [
+    #v(config.stats.margin.y)
     = Eleve Suas Habilidades
 
     #align(center)[
@@ -269,22 +284,22 @@
           #text(..config.stats.textSub,  smallcaps[Modalidades])
         ],
       )
+    #v(config.stats.margin.y)
     ]
   ]
 )
 
 #block(
-  outset: 1em,
-  inset: 2em,
-  width: 100%,
+  ..config.blocks,
   fill:
     gradient.radial(
       nord.polarNight.darker,
       nord.polarNight.darkest,
-      center: (65%, 50%),
+      center: (0%, 0%),
       radius: 61%
     ),
   [
+    #v(config.topics.margin.y)
     = Temas Disponíveis
     
     #align(center)[
@@ -293,6 +308,7 @@
       #stack(
         ..config.topics.stack,
         dir: ltr,
+        [#h(config.topics.margin.x)],
         align(center)[
           #block(
             ..config.topics.block,
@@ -358,25 +374,26 @@
               ]
             ]
           )
-        ]
+        ],
+        [#h(config.topics.margin.x)],
       )
+      #v(config.topics.margin.y)
     ]
   ]
 )
 
 
 #block(
-  outset: 1em,
-  inset: 2em,
-  width: 100%,
+  ..config.blocks,
   fill:
     gradient.radial(
       nord.polarNight.dark,
       nord.polarNight.darker,
-      center: (85%, 50%),
+      center: (100%, 0%),
       radius: 61%
     ),
   [
+    #v(config.services.margin.y)
     = Caminho de Aprendizado
 
     #align(center)[
@@ -386,7 +403,9 @@
     #stack(
       ..config.services.stack,
       dir: ltr,
+      [#h(config.services.margin.x)],
       align(left)[
+        #v(config.services.standout)
         #block(
           ..config.services.block,
           stroke: (
@@ -394,7 +413,7 @@
               gradient.linear(
                 nord.polarNight.darker,
                 nord.frost.clearIce, nord.frost.clearIce,
-                nord.frost.polarWater, nord.frost.polarWater,
+                nord.frost.clearIce, nord.frost.clearIce,
                 nord.polarNight.darker,
               ),
             "rest":
@@ -479,6 +498,7 @@
         )
       ],
       align(left)[
+        #v(config.services.standout)
         #block(
           ..config.services.block,
           stroke: (
@@ -486,7 +506,7 @@
               gradient.linear(
                 nord.polarNight.darker,
                 nord.frost.clearIce, nord.frost.clearIce,
-                nord.frost.polarWater, nord.frost.polarWater,
+                nord.frost.clearIce, nord.frost.clearIce,
                 nord.polarNight.darker,
               ),
             "rest":
@@ -522,24 +542,24 @@
             ]
           ]
         )
-      ]
+      ],
+      [#h(config.services.margin.x)],
     )
+    #v(config.services.margin.y)
   ]
 )
 
 #block(
-  outset: 1em,
-  inset: 2em,
-  width: 100%,
-  height: 18em,
+  ..config.blocks,
   fill:
     gradient.radial(
-      nord.polarNight.darker,
       nord.polarNight.darkest,
-      center: (61%, 61%),
+      nord.polarNight.darker,
+      center: (1%, 1%),
       radius: 61%
     ),
   [
+    #v(1.61em)
     = Sobre Mim
 
     #show emph: it => {
@@ -604,12 +624,14 @@
         )
       )
     ]
+    #v(1.61em)
   ]
 )
 
 
 #place(bottom + left)[
   #set text(size: 1em, weight: "medium")
+  #h(1em)
   #[
     #show link: emph
     #fa-icon("at", size: 1em, fill: theme.accentColor, solid: true)
@@ -628,4 +650,21 @@
   #fa-icon("link", fill: theme.accentColor, solid: true)
   #h(-0.2em)
   mfurquim.dev
+  #h(1em)
+  #linebreak()
+  #h(1fr)
+  #text(
+    fill: theme.textPrimary.transparentize(config.footer.transparentize),
+    font: "MonaspiceRn NFP",
+    size: config.footer.size,
+    [Made with],
+  )
+  #text(
+    fill: theme.typst.transparentize(config.footer.transparentize),
+    font: "MonaspiceKr NFP",
+    size: config.footer.size,
+    [typst],
+  )
+  #h(0.39em)
+  #v(0.39em)
 ]
