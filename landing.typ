@@ -1,5 +1,6 @@
 #import "@preview/fontawesome:0.6.0": *
 #import "@preview/zero:0.5.0": num
+#import "@preview/lucide:0.1.0": *
 
 //#let quotation = json(bytes(sys.inputs.quotation))
 //#let lecture = quotation.lecture 
@@ -43,7 +44,7 @@
     nord.polarNight.darker,
     nord.polarNight.darkest,
     //center: (90%, 25%),
-    center: (1%, 1%),
+    center: (0%, 0%),
     radius: 61%
   ),
   "primary": nord.snowStorm.normal,
@@ -83,32 +84,78 @@
     "spacing": 0em,
   ),
   "services": (
-    "standout": 1em,
+    "fade": 1em,
     "margin": (
       "x": 1fr,
-      "y": 1.61em,
+      "y": 1.61em*1.61,
     ),
     "stack": (
-      "spacing": 1.61fr,
+      "spacing": 0.61fr,
+    ),
+    "standout": (
+      "stroke": (
+        "top": 0.3em +
+          gradient.linear(
+            nord.polarNight.darkest,
+            nord.frost.deepOcean, nord.frost.deepOcean, nord.frost.deepOcean,
+            nord.frost.deepOcean, nord.frost.deepOcean, nord.frost.deepOcean,
+            nord.frost.deepOcean, nord.frost.deepOcean, nord.frost.deepOcean,
+            nord.frost.deepOcean, nord.frost.deepOcean, nord.frost.deepOcean,
+            nord.polarNight.darkest,
+          ),
+        "rest": 0.1em + nord.polarNight.darkest,
+      ),
+      fill: gradient.radial(
+        nord.polarNight.dark,
+        nord.polarNight.darkest,
+        center: (75%, 100%),
+        radius: 100%
+      ),
     ),
     "block": (
-      "stroke":
-        gradient.radial(
-          nord.polarNight.light,
-          nord.polarNight.dark,
-          center: (100%, 50%),
-          radius: 61%
+      "stroke": (
+        "top": 0.2em +
+          gradient.linear(
+            nord.polarNight.darker,
+            nord.frost.clearIce, nord.frost.clearIce,
+            nord.frost.clearIce, nord.frost.clearIce,
+            nord.polarNight.darker,
+          ),
+        "rest":
+          gradient.radial(
+            nord.polarNight.darkest,
+            nord.polarNight.darker,
+            center: (100%, 100%),
+            radius: 100%,
         ),
+      ),
+      "fill": gradient.radial(
+        nord.polarNight.dark,
+        nord.polarNight.darkest,
+        center: (65%, 90%),
+        radius: 100%
+      ),
       "radius": 1em,
       "inset": 1.5em,
-      "width": 19em,
-      "height": 20em,
+      "width": 20em,
+      "height": 27em,
+    ),
+    "check": (
+      "text": (
+        "size": 1em,
+      ),
+      "space": 1fr,
+      "icon": (
+        "stroke": nord.aurora.success,
+        "solid": true,
+        "size": 0.8em,
+      ),
     ),
   ),
   "topics": (
     "margin": (
       "x": 1fr,
-      "y": 1.61em,
+      "y": 1.61em*1.61,
     ),
     "block": (
       "stroke": (
@@ -121,15 +168,15 @@
           gradient.radial(
             nord.polarNight.light,
             nord.polarNight.dark,
-            center: (99%, 99%),
+            center: (100%, 100%),
             radius: 61%
         ),
       ),
       "fill": gradient.radial(
         nord.polarNight.dark,
         nord.polarNight.darker,
-        center: (99%,99%),
-        radius: 50%
+        center: (100%,100%),
+        radius: 61%
       ),
       "radius": 1em,
       "inset": 1.5em,
@@ -139,7 +186,18 @@
     "stack": (
       "spacing": 1.61fr,
     ),
+    "lucide": (
+      "size": 4em,
+      "fill": gradient.linear(
+        nord.frost.arcticWater,
+        nord.frost.deepOcean,
+        nord.polarNight.darker,
+        nord.polarNight.darkest,
+        angle: 55deg,
+      ),
+    ),
     "icons": (
+      "size": 4em,
       "solid": true,
       "fill": gradient.linear(
         nord.frost.arcticWater,
@@ -155,11 +213,18 @@
         "weight": "semibold",
       ),
     ),
+    "body": (
+      "spacing": 0.61em,
+      "text": (
+        "size": 0.9em,
+        "weight": "regular",
+      ),
+    ),
   ),
   "stats": (
     "margin": (
       "x": 1fr,
-      "y": 1.61em,
+      "y": 1.61em*1.2,
     ),
     "stack": (
       "spacing": 4em,
@@ -187,21 +252,28 @@
         gradient.radial(
           nord.polarNight.dark,
           nord.polarNight.darker,
-          center: (99%, 50%),
+          center: (100%, 50%),
           radius: 61%
         ),
       "radius": 100%,
       "inset": (x: 1em, y: 0.61em),
     ),
     "text": (
-      "size": 9pt,
+      "size": 0.8em,
       "fill": gradient.linear(
-        nord.frost.polarWater,
         nord.frost.clearIce,
+        nord.frost.polarWater,
       ),
       "weight": "regular",
     )
-  )
+  ),
+  "about": (
+    "margin": (
+      "x": 1fr,
+      "y": 1.61em*1.61,
+    ),
+    "width": 90%,
+  ),
 )
 
 #set par(justify: true)
@@ -245,7 +317,8 @@
     [Treinamento e Consultoria em Engenharia de Software]
   )
   #h(config.header.margin.x)
-],
+  #v(config.header.margin.y)
+]
 
 #block(
   ..config.blocks,
@@ -253,7 +326,7 @@
     gradient.radial(
       nord.polarNight.dark,
       nord.polarNight.darker,
-      center: (99%, 99%),
+      center: (100%, 100%),
       radius: 61%
     ),
   [
@@ -261,7 +334,7 @@
     = Eleve Suas Habilidades
 
     #align(center)[
-      Transforme as capacidades da sua equipe com palestras, workshop e cursos intensivos.
+      Transforme as capacidades da sua equipe com palestras, workshops e cursos intensivos.
       #linebreak()
       Treinamento especializado em Python, Machine Learning, Arquitetura Back-end e práticas DevOps.
 
@@ -295,7 +368,7 @@
     gradient.radial(
       nord.polarNight.darker,
       nord.polarNight.darkest,
-      center: (0%, 0%),
+      center: (0%, 100%),
       radius: 61%
     ),
   [
@@ -304,7 +377,7 @@
     
     #align(center)[
       Conteúdos especializados para elevar suas habilidades técnicas.
-
+      #v(config.topics.margin.y)
       #stack(
         ..config.topics.stack,
         dir: ltr,
@@ -316,18 +389,18 @@
               #fa-icon(
                 ..config.topics.icons,
                 "github",
-                size: 4.2em
               )
-              #v(-2em)
+              #v(1fr)
               #text(
                 ..config.topics.header.text,
                 [Git, Bash e Docker]
               )
               #linebreak()
-              #v(0.61em)
-              #text(size: 0.9em)[
+              #v(1fr)
+              #text(..config.topics.body.text)[
                 Controle de versão, automação de scripts e containerização de aplicações
               ]
+              #v(1fr)
             ]
           )
         ],
@@ -335,21 +408,21 @@
           #block(
             ..config.topics.block,
             [
-              #fa-icon(
-                ..config.topics.icons,
-                "code",
-                size: 3.85em
+              #lucide-icon(
+                "code-xml",
+                ..config.topics.lucide,
               )
-              #v(-2em)
+              #v(1fr)
               #text(
                 ..config.topics.header.text,
                 [Python, FastAPI e RabbitMQ]
               )
               #linebreak()
-              #v(0.61em)
-              #text(size: 0.9em)[
+              #v(1fr)
+              #text(..config.topics.body.text)[
                 Desenvolvimento back-end com APIs assíncronas e mensageria
               ]
+              #v(1fr)
             ]
           )
         ],
@@ -357,21 +430,21 @@
           #block(
             ..config.topics.block,
             [
-              #fa-icon(
-                ..config.topics.icons,
-                "gauge",
-                size: 4em
+              #lucide-icon(
+                "chart-no-axes-combined",
+                ..config.topics.lucide,
               )
-              #v(-2em)
+              #v(1fr)
               #text(
                 ..config.topics.header.text,
                 [Prometheus e Grafana]
               )
               #linebreak()
-              #v(0.61em)
-              #text(size: 0.9em)[
+              #v(1fr)
+              #text(..config.topics.body.text)[
                 Instrumentação, monitoramento e visualização de métricas em tempo real
               ]
+              #v(1fr)
             ]
           )
         ],
@@ -400,146 +473,185 @@
       Selecione o formato que melhor se adequa às necessidades da sua equipe
     ]
 
+    #v(1em)
+
     #stack(
       ..config.services.stack,
       dir: ltr,
       [#h(config.services.margin.x)],
       align(left)[
-        #v(config.services.standout)
+        #v(config.services.fade)
         #block(
           ..config.services.block,
-          stroke: (
-            "top": 0.2em +
-              gradient.linear(
-                nord.polarNight.darker,
-                nord.frost.clearIce, nord.frost.clearIce,
-                nord.frost.clearIce, nord.frost.clearIce,
-                nord.polarNight.darker,
-              ),
-            "rest":
-              gradient.radial(
-                nord.polarNight.light,
-                nord.polarNight.dark,
-                center: (99%, 50%),
-                radius: 61%
-            ),
-          ),
-          fill: gradient.radial(
-            nord.polarNight.dark,
-            nord.polarNight.darkest,
-            center: (65%, 90%),
-            radius: 100%
-          ),
           [
             #text(size: 2em, weight: "semibold")[Palestra]
-            #v(-0.6em)
+            #linebreak()
             #set text(size: 1em, weight: "regular")
             #fa-icon("clock", fill: theme.item, solid: true)
             #h(0.2em)
             #text(weight: "regular")[1h45 - 2h00]
-
-            Apresentações técnicas aprofundadas cobrindo tópicos avançados de engenharia de software.
+            #linebreak()
+            #text("Apresentações técnicas aprofundadas cobrindo tópicos avançados de engenharia de software.")
+            #v(config.services.check.space)
+            #align(center)[
+              #block(
+                width: 90%,
+                radius: 0.61em,
+                inset: 1.5em,
+                fill: gradient.radial(
+                  nord.polarNight.darker,
+                  nord.polarNight.darkest,
+                  center: (65%, 90%),
+                  radius: 100%,
+                ),
+                stroke: (
+                  "top": 0.2em + nord.frost.clearIce,
+                  "rest":gradient.radial(
+                    nord.polarNight.darker,
+                    nord.polarNight.darkest,
+                    center: (65%, 90%),
+                    radius: 100%,
+                  ),
+                ),
+                [
+                  #text(number-type: "lining", number-width: "tabular", tracking: 0.1em, weight: "extrabold", size: 2em,
+                    "R$ 3.000"
+                  )
+                  #linebreak()
+                  #smallcaps(
+                    text(size: 0.85em, "Por Sessão")
+                  )
+                ]
+              )
+            ]
+            #v(config.services.check.space)
             #[
-              #set text(size: 1em)
-              #set list(marker: [#v(-0.3em)#fa-icon("circle-check", fill: nord.aurora.success, solid: true)], spacing: 0.8em)
+              #set text(size: config.services.check.text.size)
+              #set list(marker: [#v(-0.3em)#fa-icon("check",..config.services.check.icon)], spacing: 0.8em)
               - Cobertura abrangente do tópico
-              - Sessão interativa de perguntas e respostas
-              - Exemplos práticos e demonstrações
+              - Sessão interativa com Quiz
+              - Sessão de perguntas e respostas
               - Materiais para download
             ]
+            #v(config.services.check.space)
           ]
         )
       ],
       align(left)[
         #block(
           ..config.services.block,
-          stroke: (
-            "top": 0.3em +
-              gradient.linear(
-                nord.polarNight.dark,
-                nord.frost.deepOcean, nord.frost.deepOcean, nord.frost.deepOcean,
-                nord.frost.deepOcean, nord.frost.deepOcean, nord.frost.deepOcean,
-                nord.frost.deepOcean, nord.frost.deepOcean, nord.frost.deepOcean,
-                nord.frost.deepOcean, nord.frost.deepOcean, nord.frost.deepOcean,
-                nord.polarNight.dark,
-              ),
-            "rest":
-              gradient.radial(
-                nord.polarNight.light,
-                nord.polarNight.dark,
-                center: (99%, 50%),
-                radius: 61%
-            ),
-          ),
-          fill: gradient.radial(
-            nord.polarNight.dark,
-            nord.polarNight.darkest,
-            center: (65%, 90%),
-            radius: 100%
-          ),
+          ..config.services.standout,
+          height: config.services.block.height + config.services.fade,
           [
             #text(size: 2em, weight: "semibold")[Workshop]
-            #v(-0.4em)
+            #linebreak()
             #set text(size: 1em, weight: "regular")
             #fa-icon("clock", fill: theme.item, solid: true)
             #h(0.2em)
             #text(weight: "regular")[2h30 - 3h00]
-
-            Sessões práticas de wrkshop com exercícios práticos e aplicações do mundo real.
+            #parbreak()
+            Sessões práticas de workshop com exercícios práticos e aplicações do mundo real.
+            #v(config.services.check.space)
+            #align(center)[
+              #block(
+                width: 90%,
+                radius: 0.61em,
+                inset: 1.5em,
+                fill: gradient.radial(
+                  nord.polarNight.darker,
+                  nord.polarNight.darkest,
+                  center: (65%, 90%),
+                  radius: 100%,
+                ),
+                stroke: (
+                  "top": 0.3em + nord.frost.deepOcean,
+                  "rest":gradient.radial(
+                    nord.polarNight.darker,
+                    nord.polarNight.darkest,
+                    center: (65%, 90%),
+                    radius: 100%,
+                  ),
+                ),
+                [
+                  #text(number-type: "lining", number-width: "tabular", tracking: 0.1em, weight: "extrabold", size: 2em,
+                    "R$ 5.000"
+                  )
+                  #linebreak()
+                  #smallcaps(
+                    text(size: 0.85em, "Por Sessão")
+                  )
+                ]
+              )
+            ]
+            #v(config.services.check.space)
             #[
-              #set text(size: 1.1em)
-              #set list(marker: [#v(-0.3em)#fa-icon("circle-check", fill: nord.aurora.success, solid: true)], spacing: 0.8em)
+              #set text(size: config.services.check.text.size)
+              #set list(marker: [#v(-0.3em)#fa-icon("check",..config.services.check.icon)], spacing: 0.8em)
               - Sessões de codificação ao vivo
               - Exercícios práticos do tema
               - Implementação de boas práticas
               - Revisão de código e #text(style:"oblique", "feedback")
+              - Materiais para download
             ]
+            #v(config.services.check.space)
           ]
         )
       ],
       align(left)[
-        #v(config.services.standout)
+        #v(config.services.fade)
         #block(
           ..config.services.block,
-          stroke: (
-            "top": 0.2em +
-              gradient.linear(
-                nord.polarNight.darker,
-                nord.frost.clearIce, nord.frost.clearIce,
-                nord.frost.clearIce, nord.frost.clearIce,
-                nord.polarNight.darker,
-              ),
-            "rest":
-              gradient.radial(
-                nord.polarNight.light,
-                nord.polarNight.dark,
-                center: (99%, 50%),
-                radius: 61%
-            ),
-          ),
-          fill: gradient.radial(
-            nord.polarNight.dark,
-            nord.polarNight.darkest,
-            center: (65%, 90%),
-            radius: 100%
-          ),
           [
             #text(size: 2em, weight: "semibold")[Intensivo]
-            #v(-0.4em)
+            #linebreak()
             #set text(size: 1em, weight: "regular")
             #fa-icon("clock", fill: theme.item, solid: true)
             #h(0.2em)
-            #text(weight: "regular")[1h30 - 1h45 x 4 dias]
+            #text(weight: "regular")[1h30 - 1h45 x ]#text(weight: "medium", fill: nord.snowStorm.brighter)[4 dias]
 
             Programa intensivo de 4 dias projetado para dominar todos os três temas disponíveis.
+            #v(config.services.check.space)
+            #align(center)[
+              #block(
+                width: 90%,
+                radius: 0.61em,
+                inset: 1.5em,
+                fill: gradient.radial(
+                  nord.polarNight.darker,
+                  nord.polarNight.darkest,
+                  center: (65%, 90%),
+                  radius: 100%,
+                ),
+                stroke: (
+                  "top": 0.2em + nord.frost.clearIce,
+                  "rest":gradient.radial(
+                    nord.polarNight.darker,
+                    nord.polarNight.darkest,
+                    center: (65%, 90%),
+                    radius: 100%,
+                  ),
+                ),
+                [
+                  #text(number-type: "lining", number-width: "tabular", tracking: 0.1em, weight: "extrabold", size: 2em,
+                    "R$ 2.500"
+                  )
+                  #linebreak()
+                  #smallcaps(
+                    text(size: 0.85em, "Por Sessão")
+                  )
+                ]
+              )
+            ]
+            #v(config.services.check.space)
             #[
-              #set text(size: 1.2em)
-              #set list(marker: [#v(-0.3em)#fa-icon("circle-check", fill: nord.aurora.success, solid: true)], spacing: 0.8em)
+              #set text(size: config.services.check.text.size)
+              #set list(marker: [#v(-0.3em)#fa-icon("check",..config.services.check.icon)], spacing: 0.8em)
               - Cobertura abrangente do tópico
-              - Sessão interativa de perguntas e respostas
-              - Exemplos práticos e demonstrações
+              - Sessão de perguntas e respostas
+              - Desafios práticos
               - Materiais para download
             ]
+            #v(config.services.check.space)
           ]
         )
       ],
@@ -553,35 +665,45 @@
   ..config.blocks,
   fill:
     gradient.radial(
-      nord.polarNight.darkest,
       nord.polarNight.darker,
-      center: (1%, 1%),
+      nord.polarNight.darkest,
+      center: (0%, 0%),
       radius: 61%
     ),
   [
-    #v(1.61em)
+    #v(config.about.margin.y)
     = Sobre Mim
 
     #show emph: it => {
       text(
-        fill: gradient.linear(
+        fill: gradient.radial(
           nord.frost.arcticWater,
           nord.frost.deepOcean,
+          center: (100%, 100%),
         ),
         weight: "medium",
         it.body
       )
     }
     
-    #par(first-line-indent: (amount: 2em, all: true), justify: true)[
-      Sou um Engenheiro de Software com mais de #emph[10 anos] de experiência,
-      atuando em diversas áreas como #emph[Machine Learning], #emph[Back-end] e #emph[DevOps].
-      Especialista em #emph[Python], #emph[RabbitMQ] e bancos de dados #emph[NoSQL].
-      Comprometido com o crescimento da equipe e inovação através de mentoria e colaboração.
-    ]
+    #stack(
+      dir: ltr,
+      h(config.about.margin.x),
+      block(width: config.about.width,
+        par(first-line-indent: (amount: 1.61em*2, all: true), justify: true,
+            [
+              Mateus é um Engenheiro de Software com mais de #emph[10 anos] de experiência,
+              atuando em diversas áreas como #emph[Machine Learning], #emph[Back-end] e #emph[DevOps].
+              Especialista em #emph[Python], #emph[RabbitMQ] e bancos de dados #emph[NoSQL].
+              Comprometido com o crescimento da equipe e inovação através de mentoria e colaboração.
+            ]
+          )
+      ),
+      h(config.about.margin.x),
+    )
     
     #align(center)[
-      // Tags
+    // Tags
     #grid(
         columns: 6,
         gutter: 10pt,
@@ -624,13 +746,13 @@
         )
       )
     ]
-    #v(1.61em)
+    #v(config.about.margin.y)
   ]
 )
 
 
 #place(bottom + left)[
-  #set text(size: 1em, weight: "medium")
+  #set text(fill: nord.snowStorm.dimmer, size: 1em, weight: "medium")
   #h(1em)
   #[
     #show link: emph
@@ -646,11 +768,12 @@
   #fa-icon("linkedin", fill: theme.accentColor, solid: true)
   #h(-0.1em)
   in/mfurquimdev
-  #h(0.61fr)
-  #fa-icon("link", fill: theme.accentColor, solid: true)
-  #h(-0.2em)
-  mfurquim.dev
   #h(1em)
+//  #h(0.61fr)
+//  #fa-icon("link", fill: theme.accentColor, solid: true)
+//  #h(-0.2em)
+//  mfurquim.dev
+//  #h(1em)
   #linebreak()
   #h(1fr)
   #text(
