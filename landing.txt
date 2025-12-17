@@ -1,0 +1,130 @@
+MFurquim Dev
+
+Treinamento e Consultoria em Engenharia de Software
+
+Eleve Suas Habilidades
+Transforme as capacidades da sua equipe com palestras, workshops e cursos intensivos.
+Treinamento especializado em Python, Machine Learning, Arquitetura Back-end e práticas DevOps.
+
+10+
+
+8
+
+Anos de Experiência
+
+3
+
+Tecnologias
+
+Modalidades
+
+Temas Disponíveis
+Conteúdos especializados para elevar suas habilidades técnicas.
+
+Git, Bash e Docker
+
+
+
+
+
+Python, FastAPI e RabbitMQ
+
+Prometheus e Grafana
+
+Controle de versão, automação de
+scripts e containerização de aplicações.
+
+Desenvolvimento back-end com APIs
+assíncronas e mensageria.
+
+Instrumentação, monitoramento e visu­
+alização de métricas em tempo real.
+
+
+
+Caminho de Aprendizado
+Selecione o formato que melhor se adequa às necessidades da sua equipe
+
+Workshop
+
+Palestra
+
+Mais Popular
+
+Intensivo
+
+ 2h30 - 3h00
+
+ 1h45 - 2h00
+Apresentações técnicas sobre tópicos
+avançados de engenharia de software.
+
+ 1h30 - 1h45 x 4 dias
+
+Sessões práticas de workshop com
+exercícios e aplicações atuais do mer­
+cado de trabalho.
+
+Programa intensivo de 4 dias pro­
+jetado para dominar todos os três
+temas disponíveis.
+
+R$ 5. 00 0
+
+R $ 3 .0 00
+
+R $ 2. 500
+
+Por Sessão
+
+Por Sessão
+
+Por Dia
+
+ Sessões de codificação ao vivo
+
+ Cobertura abrangente de 1 tema
+ Sessão interativa com Quiz
+ Sessão de perguntas e respostas
+ Materiais para download
+
+ Exercícios práticos do tema
+
+ Cobertura abrangente dos 3 temas
+
+ Implementação de boas práticas
+
+ Sessão de integração de conteúdo
+
+ Revisão de código e feedback
+
+ Desafios práticos diários
+
+ Materiais para download
+
+ Apostila e materiais para download
+
+Sobre Mim
+Com mais de 10 anos de experiência como Engenheiro de Software, atuei em diversas áreas como Machine Learning, Back-end e DevOps.
+Especialista em Python, RabbitMQ e bancos de dados NoSQL. Valorizo código bem estruturado, arquitetura eficiente e, acima de tudo, o crescimento
+coletivo através da colaboração e do compartilhamento de conhecimento.
+Python
+
+@ mfurquimdev@gmail.com
+
+Machine Learning
+
+Arquitetura Backend
+
+DevOps
+
+RabbitMQ
+
+Cassandra
+
+ mfurquimdev
+
+ in/mfurquimdev
+Made with typst
+
+

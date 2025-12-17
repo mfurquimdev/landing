@@ -103,14 +103,19 @@
             nord.frost.deepOcean, nord.frost.deepOcean, nord.frost.deepOcean,
             nord.polarNight.darkest,
           ),
-        "rest": 0.1em + nord.polarNight.darkest,
+        "rest": 0.1em + gradient.linear(
+            nord.polarNight.darkest,
+            nord.polarNight.darker,
+            nord.polarNight.darkest,
+        ),
       ),
       fill: gradient.radial(
         nord.polarNight.dark,
         nord.polarNight.darkest,
-        center: (75%, 100%),
-        radius: 100%
+        center: (61%, 61%),
+        radius: 100%,
       ),
+      "width": 20em,
     ),
     "block": (
       "stroke": (
@@ -122,18 +127,17 @@
             nord.polarNight.darker,
           ),
         "rest":
-          gradient.radial(
+          gradient.linear(
             nord.polarNight.darkest,
             nord.polarNight.darker,
-            center: (100%, 100%),
-            radius: 100%,
+            nord.polarNight.darkest,
         ),
       ),
       "fill": gradient.radial(
         nord.polarNight.dark,
         nord.polarNight.darkest,
-        center: (65%, 90%),
-        radius: 100%
+        center: (61%, 61%),
+        radius: 100%,
       ),
       "radius": 1em,
       "inset": 1.5em,
@@ -197,7 +201,7 @@
       ),
     ),
     "icons": (
-      "size": 4em,
+      "size": 3.8em,
       "solid": true,
       "fill": gradient.linear(
         nord.frost.arcticWater,
@@ -261,10 +265,10 @@
     "text": (
       "size": 0.8em,
       "fill": gradient.linear(
-        nord.frost.clearIce,
         nord.frost.polarWater,
+        nord.frost.clearIce,
       ),
-      "weight": "regular",
+      "weight": "medium",
     )
   ),
   "about": (
@@ -308,8 +312,17 @@
   #v(config.header.margin.y)
   #h(config.header.margin.x)
   #text(
-    fill: nord.frost.arcticWater,
-    [Mateus Furquim]
+    fill: nord.snowStorm.dimmest,
+    //fill: gradient.radial(
+    //    nord.frost.deepOcean,
+    //    nord.frost.arcticWater,
+    //    nord.frost.arcticWater,
+    //    nord.frost.deepOcean,
+    //    center: (61%,61%),
+    //    radius: 61%,
+    //),
+    //[Mateus Furquim]
+    [MFurquim Dev]
   )
   #h(1fr)
   #text(
@@ -332,12 +345,12 @@
   [
     #v(config.stats.margin.y)
     = Eleve Suas Habilidades
-
-    #align(center)[
+    #v(0.61em)
+#align(center)[
       Transforme as capacidades da sua equipe com palestras, workshops e cursos intensivos.
       #linebreak()
       Treinamento especializado em Python, Machine Learning, Arquitetura Back-end e práticas DevOps.
-
+      #v(0.61em)
       #stack(
         ..config.stats.stack,
         dir: ltr,
@@ -398,7 +411,7 @@
               #linebreak()
               #v(1fr)
               #text(..config.topics.body.text)[
-                Controle de versão, automação de scripts e containerização de aplicações
+                Controle de versão, automação de scripts e containerização de aplicações.
               ]
               #v(1fr)
             ]
@@ -420,7 +433,7 @@
               #linebreak()
               #v(1fr)
               #text(..config.topics.body.text)[
-                Desenvolvimento back-end com APIs assíncronas e mensageria
+                Desenvolvimento back-end com APIs assíncronas e mensageria.
               ]
               #v(1fr)
             ]
@@ -442,7 +455,7 @@
               #linebreak()
               #v(1fr)
               #text(..config.topics.body.text)[
-                Instrumentação, monitoramento e visualização de métricas em tempo real
+                Instrumentação, monitoramento e visualização de métricas em tempo real.
               ]
               #v(1fr)
             ]
@@ -484,14 +497,15 @@
         #block(
           ..config.services.block,
           [
+            #set par(spacing: 0.61em) 
             #text(size: 2em, weight: "semibold")[Palestra]
-            #linebreak()
+            #parbreak()
             #set text(size: 1em, weight: "regular")
             #fa-icon("clock", fill: theme.item, solid: true)
             #h(0.2em)
             #text(weight: "regular")[1h45 - 2h00]
-            #linebreak()
-            #text("Apresentações técnicas aprofundadas cobrindo tópicos avançados de engenharia de software.")
+            #v(config.services.check.space)
+            #text("Apresentações técnicas sobre tópicos avançados de engenharia de software.")
             #v(config.services.check.space)
             #align(center)[
               #block(
@@ -528,7 +542,7 @@
             #[
               #set text(size: config.services.check.text.size)
               #set list(marker: [#v(-0.3em)#fa-icon("check",..config.services.check.icon)], spacing: 0.8em)
-              - Cobertura abrangente do tópico
+              - Cobertura abrangente de 1 tema
               - Sessão interativa com Quiz
               - Sessão de perguntas e respostas
               - Materiais para download
@@ -543,14 +557,53 @@
           ..config.services.standout,
           height: config.services.block.height + config.services.fade,
           [
-            #text(size: 2em, weight: "semibold")[Workshop]
-            #linebreak()
-            #set text(size: 1em, weight: "regular")
-            #fa-icon("clock", fill: theme.item, solid: true)
-            #h(0.2em)
-            #text(weight: "regular")[2h30 - 3h00]
-            #parbreak()
-            Sessões práticas de workshop com exercícios práticos e aplicações do mundo real.
+            #stack(
+              dir: ltr,
+              [
+                #set par(spacing: 0.61em) 
+                #text(size: 2em, weight: "semibold")[Workshop]
+                #parbreak()
+                #set text(size: 1em, weight: "regular")
+                #fa-icon("clock", fill: theme.item, solid: true)
+                #h(0.2em)
+                #text(weight: "regular")[2h30 - 3h00]
+                #parbreak()
+              ],
+              align(right)[
+                #rotate(
+                  0deg,
+                  [
+                    //#v(-0.61em) 
+                    #block(
+                      inset: 0.61em,
+                      radius: 100%,
+                      fill: gradient.radial(
+                        nord.frost.arcticWater,
+                        nord.frost.deepOcean,
+                        center: (100%, 100%),
+                        radius: 100%,
+                      ),
+                      stroke: gradient.radial(
+                        nord.polarNight.darker,
+                        nord.polarNight.darkest,
+                        center: (0%, 0%),
+                        radius: 61%,
+                      ),
+                      text(
+                        size: 0.8em,
+                        tracking: 0.03em,
+                        weight: "bold",
+                        stroke: 0.02em + nord.snowStorm.dimmest,
+                        fill: nord.snowStorm.brightest,
+                        smallcaps("Mais Popular")
+                      )
+                    )
+                  ]
+                )
+              ]
+            )
+            #v(config.services.check.space)
+            Sessões práticas de workshop com exercícios e aplicações atuais do mercado de trabalho.
             #v(config.services.check.space)
             #align(center)[
               #block(
@@ -602,13 +655,14 @@
         #block(
           ..config.services.block,
           [
+            #set par(spacing: 0.61em) 
             #text(size: 2em, weight: "semibold")[Intensivo]
-            #linebreak()
+            #parbreak()
             #set text(size: 1em, weight: "regular")
             #fa-icon("clock", fill: theme.item, solid: true)
             #h(0.2em)
             #text(weight: "regular")[1h30 - 1h45 x ]#text(weight: "medium", fill: nord.snowStorm.brighter)[4 dias]
-
+            #v(config.services.check.space)
             Programa intensivo de 4 dias projetado para dominar todos os três temas disponíveis.
             #v(config.services.check.space)
             #align(center)[
@@ -637,7 +691,7 @@
                   )
                   #linebreak()
                   #smallcaps(
-                    text(size: 0.85em, "Por Sessão")
+                    text(size: 0.85em, "Por Dia")
                   )
                 ]
               )
@@ -646,10 +700,10 @@
             #[
               #set text(size: config.services.check.text.size)
               #set list(marker: [#v(-0.3em)#fa-icon("check",..config.services.check.icon)], spacing: 0.8em)
-              - Cobertura abrangente do tópico
-              - Sessão de perguntas e respostas
-              - Desafios práticos
-              - Materiais para download
+              - Cobertura abrangente dos 3 temas
+              - Sessão de integração de conteúdo
+              - Desafios práticos diários
+              - Apostila e materiais para download
             ]
             #v(config.services.check.space)
           ]
@@ -673,7 +727,7 @@
   [
     #v(config.about.margin.y)
     = Sobre Mim
-
+    #v(0.61em)
     #show emph: it => {
       text(
         fill: gradient.radial(
@@ -692,16 +746,15 @@
       block(width: config.about.width,
         par(first-line-indent: (amount: 1.61em*2, all: true), justify: true,
             [
-              Mateus é um Engenheiro de Software com mais de #emph[10 anos] de experiência,
-              atuando em diversas áreas como #emph[Machine Learning], #emph[Back-end] e #emph[DevOps].
+              Com mais de #emph[10 anos] de experiência como Engenheiro de Software,
+              atuei em diversas áreas como #emph[Machine Learning], #emph[Back-end] e #emph[DevOps].
               Especialista em #emph[Python], #emph[RabbitMQ] e bancos de dados #emph[NoSQL].
-              Comprometido com o crescimento da equipe e inovação através de mentoria e colaboração.
+              Valorizo código bem estruturado, arquitetura eficiente e, acima de tudo, o crescimento coletivo através da colaboração e do compartilhamento de conhecimento.
             ]
           )
       ),
       h(config.about.margin.x),
     )
-    
     #align(center)[
     // Tags
     #grid(
@@ -757,16 +810,13 @@
   #[
     #show link: emph
     #fa-icon("at", size: 1em, fill: theme.accentColor, solid: true)
-    #h(-0.2em)
     #link("mailto:mfurquimdev@gmail.com")
   ]
   #h(9fr)
   #fa-icon("git", fill: theme.accentColor, solid: true)
-  #h(-0.1em)
   mfurquimdev
   #h(0.61fr)
   #fa-icon("linkedin", fill: theme.accentColor, solid: true)
-  #h(-0.1em)
   in/mfurquimdev
   #h(1em)
 //  #h(0.61fr)
